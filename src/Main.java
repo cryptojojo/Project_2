@@ -1,6 +1,6 @@
 
 /**
- * Main class to run the GUI
+ * Main class to run the Smart Oven GUI
  * @author Ashley Schuelein
  */
 public class Main {

@@ -1,9 +1,10 @@
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 
 /**
- * GUI class for the Graphical User Interface
+ * GUI class for the Smart Oven Graphical User Interface
  * @author Ashley Schuelein
  */
 public class GUI extends JFrame {
@@ -45,13 +46,14 @@ public class GUI extends JFrame {
 		panel.add(settings);
 		panel.add(scroll);
 		add(panel);
+		setLayout(new FlowLayout());
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}
 	
 	/**
-	 * Private class for Button action
+	 * Private class for Button actions
 	 * @author Ashley Schuelein
 	 */
 	 private class ButtonListener implements ActionListener {   
@@ -94,9 +96,11 @@ public class GUI extends JFrame {
 		            	text.append(cookEnd);
 		            }
 			 	}
-			 	else
+			 	else 
 			 	{
-			 		//Section for settings button
+			 		System.out.println("Hit the settings button");
+			 		SettingsFrame setFrame = new SettingsFrame();
+			 		setFrame.setVisible(true);
 			 	}
 	        }
 	 	}
