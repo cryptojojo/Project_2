@@ -28,13 +28,13 @@ public class GUI extends JFrame {
 		panel=new JPanel();
 		preheat=new JButton("Preheat");
 		preheat.setBounds(80, 100, 100, 25);
-		preheat.addActionListener(new FileButtonListener());
+		preheat.addActionListener(new ButtonListener());
 		cook=new JButton("Cook Time");
 		cook.setBounds(80, 100, 100, 25);
-		//cook.addActionListener(new FileButtonListener());
+		cook.addActionListener(new ButtonListener());
 		settings=new JButton("Settings");
 		settings.setBounds(80, 100, 100, 25);
-		//settings.addActionListener(new FileButtonListener());
+		settings.addActionListener(new ButtonListener());
 		text=new JTextArea(20, 30);
 		scroll=new JScrollPane(text);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -54,18 +54,50 @@ public class GUI extends JFrame {
 	 * Private class for Button action
 	 * @author Ashley Schuelein
 	 */
-	 private class FileButtonListener implements ActionListener {   
+	 private class ButtonListener implements ActionListener {   
 		 @Override
 	        
 	         /**
 	         * @param ActionEvent e
-	         * Method for implementing action for JButton preheat in GUI
+	         * Method for implementing action for JButton in GUI
 	         */
-	        public void actionPerformed( ActionEvent e) {
-	            System.out.println("hit the preheat button");
-	            int temperature = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter your temperature: "));
-	            String temp = "This is your temperature: " + temperature;
-	            text.append(temp);
+	        public void actionPerformed(ActionEvent e) {
+			 	if(e.getSource() == preheat)
+			 	{
+			 		System.out.println("Hit the preheat button");
+		            int temperature = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter your temperature: "));
+		            if(temperature > 500)
+		            {
+		            	String reset = temperature + " is out of range. Enter a new temperature.\n";
+		            	text.append(reset);
+		            }
+		            else
+		            {
+		            	String temp = "Your oven has been preheated to: " + temperature + "\n";
+		            	text.append(temp);
+		            }
+			 	}
+			 	else if(e.getSource() == cook)
+			 	{
+			 		System.out.println("Hit the cook button");
+		            int cookTime = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter your cook time: "));
+		            if(cookTime > 180)
+		            {
+		            	String reset = cookTime + " is out of range. Enter a new cook time.\n";
+		            	text.append(reset);
+		            }
+		            else
+		            {
+		            	String cooking = "Your cook time has been set to: " + cookTime + " minutes\n";
+		            	text.append(cooking);
+		            	String cookEnd = "Cooking is complete.";
+		            	text.append(cookEnd);
+		            }
+			 	}
+			 	else
+			 	{
+			 		//Section for settings button
+			 	}
 	        }
 	 	}
 }
