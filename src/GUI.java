@@ -19,7 +19,6 @@ public class GUI extends JFrame {
 	
 	/**
 	 * Constructor to make the Graphical User Interface
-	 * @author Ashley Schuelein
 	 */
 	public GUI()
 	{
@@ -68,33 +67,24 @@ public class GUI extends JFrame {
 			 	{
 			 		System.out.println("Hit the preheat button");
 		            int temperature = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter your temperature: "));
+		            String temp;
+		            String reset;
 		            if(temperature > 500)
 		            {
-		            	String reset = temperature + " is out of range. Enter a new temperature.\n";
+		            	reset = temperature + " is out of range. Enter a new temperature.\n";
 		            	text.append(reset);
 		            }
-		            else
+		            else		            
 		            {
-		            	String temp = "Your oven has been preheated to: " + temperature + "\n";
+		            	temp = "Your oven has been preheated to: " + temperature + "\n";
 		            	text.append(temp);
 		            }
 			 	}
 			 	else if(e.getSource() == cook)
 			 	{
 			 		System.out.println("Hit the cook button");
-		            int cookTime = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter your cook time: "));
-		            if(cookTime > 180)
-		            {
-		            	String reset = cookTime + " is out of range. Enter a new cook time.\n";
-		            	text.append(reset);
-		            }
-		            else
-		            {
-		            	String cooking = "Your cook time has been set to: " + cookTime + " minutes\n";
-		            	text.append(cooking);
-		            	String cookEnd = "Cooking is complete.";
-		            	text.append(cookEnd);
-		            }
+			 		CookingFrame cookFrame = new CookingFrame();
+			 		cookFrame.setVisible(true);
 			 	}
 			 	else 
 			 	{

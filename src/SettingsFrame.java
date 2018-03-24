@@ -1,5 +1,8 @@
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -12,20 +15,38 @@ public class SettingsFrame extends JFrame {
 
 	/**
 	 * Constructor to make the settings menu
-	 * @author Ashley Schuelein
 	 */
 	public SettingsFrame()
 	{
 		super("Smart Oven");
 		JLabel settingsLabel = new JLabel("Welcome to the Settings Menu");
  		JPanel settingsPanel = new JPanel();
+ 		JButton account =new JButton("Account");
+		account.setBounds(80, 100, 100, 25);
+		account.addActionListener(new ButtonListener());
  		setSize(600, 300);
  		settingsPanel.add(settingsLabel);
+ 		settingsPanel.add(account);
  		add(settingsPanel);
  		setLayout(new FlowLayout());
  		setLocationRelativeTo(null);
- 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
-		//TODO Need to add more features in settings
+	}
+	
+	/**
+	 * Private class for Button actions
+	 * @author Ashley Schuelein
+	 */
+	private class ButtonListener implements ActionListener {   
+		 @Override
+	        
+	         /**
+	         * @param ActionEvent e
+	         * Method for implementing action for JButton in GUI
+	         */
+	        public void actionPerformed(ActionEvent e) {
+			 Account myAccount = new Account();
+			 myAccount.setVisible(true);
+		 }
 	}
 }
