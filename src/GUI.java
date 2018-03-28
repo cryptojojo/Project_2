@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -19,7 +20,7 @@ import java.awt.event.ActionEvent;
 public class GUI extends JFrame {
 
 	private JLabel message;
-	private JPanel panel;
+
 	private JButton preheat;
 	private JButton cook;
 	private JButton settings;
@@ -38,7 +39,10 @@ public class GUI extends JFrame {
 		setResizable(false);
 		setSize(800, 400);
 		message = new JLabel("Please select an option");
-		panel = new JPanel();
+
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setVisible(true);
 
 		preheat = new JButton("Preheat");
 		preheat.setBounds(80, 100, 100, 25);
@@ -53,16 +57,21 @@ public class GUI extends JFrame {
 		scroll = new JScrollPane(text);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		panel.add(message);
-		panel.add(preheat);
-		panel.add(cook);
-		panel.add(settings);
-		panel.add(scroll);
-		add(panel);
+		add(message);
+		add(preheat);
+		add(cook);
+		add(settings);
+		add(scroll);
+
 		setLayout(new FlowLayout());
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
+
+		setLayout(new BorderLayout());
+		JLabel background = new JLabel(new ImageIcon("grad.png"));
+		add(background);
+		background.setLayout(new FlowLayout());
 	}
 
 	/**

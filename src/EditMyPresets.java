@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +14,6 @@ public class EditMyPresets extends JFrame {
 
 	private String preset;
 	private int time;
-	private JPanel adder;
 	private JLabel nameLabel, timeLabel;
 	private JTextField presetName;
 	private JTextField presetTime;
@@ -26,8 +26,13 @@ public class EditMyPresets extends JFrame {
 	public EditMyPresets() {
 		super("Smart Oven");
 		setResizable(false);
-		adder = new JPanel();
+
 		setSize(800, 400);
+
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setVisible(true);
+
 		nameLabel = new JLabel("Preset Name: ");
 		timeLabel = new JLabel("Time for preset: ");
 		presetName = new JTextField(10);
@@ -36,16 +41,22 @@ public class EditMyPresets extends JFrame {
 		addNewPreset.addActionListener(new ButtonListener());
 		deletePreset = new JButton("Delete Old Preset");
 		deletePreset.addActionListener(new ButtonListener());
-		adder.add(nameLabel);
-		adder.add(presetName);
-		adder.add(timeLabel);
-		adder.add(presetTime);
-		adder.add(addNewPreset);
-		adder.add(deletePreset);
-		add(adder);
+		add(nameLabel);
+		add(presetName);
+		add(timeLabel);
+		add(presetTime);
+		add(addNewPreset);
+		add(deletePreset);
+
 		setLayout(new FlowLayout());
 		setLocationRelativeTo(null);
 		setVisible(true);
+
+		setLayout(new BorderLayout());
+		JLabel background = new JLabel(new ImageIcon("grad.png"));
+		add(background);
+		background.setLayout(new FlowLayout());
+
 	}
 
 	/**

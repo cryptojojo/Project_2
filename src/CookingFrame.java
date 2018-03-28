@@ -1,6 +1,7 @@
 import javax.swing.*;
 
 import java.awt.event.ActionListener;
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 
@@ -25,8 +26,13 @@ public class CookingFrame extends JFrame {
 		super("Smart Oven");
 		setResizable(false);
 		JLabel cookingLabel = new JLabel("Welcome to the Cooking Menu");
-		JPanel cookingPanel = new JPanel();
+
 		setSize(1000, 400);
+
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setVisible(true);
+
 		cookTime = new JButton("Set time");
 		cookTime.setBounds(80, 100, 100, 25);
 		cookTime.addActionListener(new ButtonListener());
@@ -43,16 +49,21 @@ public class CookingFrame extends JFrame {
 		scroll = new JScrollPane(text);
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		cookingPanel.add(cookingLabel);
-		cookingPanel.add(cookTime);
-		cookingPanel.add(pizza);
-		cookingPanel.add(cookies);
-		cookingPanel.add(editPresets);
-		cookingPanel.add(scroll);
-		add(cookingPanel);
+		add(cookingLabel);
+		add(cookTime);
+		add(pizza);
+		add(cookies);
+		add(editPresets);
+		add(scroll);
+
 		setLayout(new FlowLayout());
 		setLocationRelativeTo(null);
 		setVisible(true);
+
+		setLayout(new BorderLayout());
+		JLabel background = new JLabel(new ImageIcon("grad.png"));
+		add(background);
+		background.setLayout(new FlowLayout());
 	}
 
 	/**

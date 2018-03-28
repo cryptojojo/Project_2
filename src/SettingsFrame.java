@@ -1,7 +1,9 @@
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,6 +22,11 @@ public class SettingsFrame extends JFrame {
 	public SettingsFrame() {
 		super("Smart Oven");
 		setResizable(false);
+
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setVisible(true);
+
 		JLabel settingsLabel = new JLabel("Welcome to the Settings Menu");
 		JPanel settingsPanel = new JPanel();
 		JButton account = new JButton("Account");
@@ -32,6 +39,11 @@ public class SettingsFrame extends JFrame {
 		setLayout(new FlowLayout());
 		setLocationRelativeTo(null);
 		setVisible(true);
+
+		setLayout(new BorderLayout());
+		JLabel background = new JLabel(new ImageIcon("grad.png"));
+		add(background);
+		background.setLayout(new FlowLayout());
 	}
 
 	/**
