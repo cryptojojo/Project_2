@@ -8,17 +8,17 @@ import javax.swing.*;
 /**
  * Class for adding or deleting a new preset in cooking menu
  * 
- * @author Ashley Schuelein
+ * @author Ashley Schuelein, Joseph Miller
  */
 public class EditMyPresets extends JFrame {
 
-	private String preset;
-	private int time;
-	private JLabel nameLabel, timeLabel;
-	private JTextField presetName;
-	private JTextField presetTime;
-	private JButton addNewPreset;
-	private JButton deletePreset;
+	private String preset = "";
+	private int time = 0;
+	private JLabel nameLabel = new JLabel("Preset Name: "), timeLabel = new JLabel("Time for preset: ");
+	private JTextField presetName = new JTextField(10);
+	private JTextField presetTime = new JTextField(10);
+	private JButton addNewPreset = new JButton("Add New Preset");
+	private JButton deletePreset = new JButton("Delete Old Preset");
 
 	/**
 	 * Constructor for adding or deleting a preset
@@ -33,13 +33,8 @@ public class EditMyPresets extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 
-		nameLabel = new JLabel("Preset Name: ");
-		timeLabel = new JLabel("Time for preset: ");
-		presetName = new JTextField(10);
-		presetTime = new JTextField(10);
-		addNewPreset = new JButton("Add New Preset");
 		addNewPreset.addActionListener(new ButtonListener());
-		deletePreset = new JButton("Delete Old Preset");
+
 		deletePreset.addActionListener(new ButtonListener());
 		add(nameLabel);
 		add(presetName);

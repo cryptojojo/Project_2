@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 /**
  * GUI class for the Smart Oven Graphical User Interface
  * 
- * @author Ashley Schuelein
+ * @author Ashley Schuelein, Joseph Miller
  */
 public class GUI extends JFrame {
 

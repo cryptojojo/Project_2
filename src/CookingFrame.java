@@ -8,16 +8,16 @@ import java.awt.event.ActionEvent;
 /**
  * Class for the cooking window
  * 
- * @author Ashley Schuelein
+ * @author Ashley Schuelein, Joseph Miller
  */
 public class CookingFrame extends JFrame {
 
-	private JButton cookTime;
-	private JButton pizza;
-	private JButton cookies;
-	private JButton editPresets;
-	private JTextArea text;
-	private JScrollPane scroll;
+	private JButton cookTime = new JButton("Set time");
+	private JButton pizza = new JButton("Pizza");
+	private JButton cookies = new JButton("Cookies");
+	private JButton editPresets = new JButton("Edit Presets");
+	private JTextArea text = new JTextArea(20, 30);
+	private JScrollPane scroll = new JScrollPane(text);
 
 	/**
 	 * Constructor to make the cooking menu
@@ -33,20 +33,15 @@ public class CookingFrame extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 
-		cookTime = new JButton("Set time");
 		cookTime.setBounds(80, 100, 100, 25);
 		cookTime.addActionListener(new ButtonListener());
-		pizza = new JButton("Pizza");
 		pizza.setBounds(80, 100, 100, 25);
 		pizza.addActionListener(new ButtonListener());
-		cookies = new JButton("Cookies");
 		cookies.setBounds(80, 100, 100, 25);
 		cookies.addActionListener(new ButtonListener());
-		editPresets = new JButton("Edit Presets");
 		editPresets.setBounds(80, 100, 100, 25);
 		editPresets.addActionListener(new ButtonListener());
-		text = new JTextArea(20, 30);
-		scroll = new JScrollPane(text);
+
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		add(cookingLabel);

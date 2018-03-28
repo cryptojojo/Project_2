@@ -12,9 +12,13 @@ import javax.swing.JPanel;
 /**
  * Class for the settings menu window
  * 
- * @author Ashley Schuelein
+ * @author Ashley Schuelein, Joseph Miller
  */
 public class SettingsFrame extends JFrame {
+
+	JLabel settingsLabel = new JLabel("Welcome to the Settings Menu");
+	JPanel settingsPanel = new JPanel();
+	JButton account = new JButton("Account");
 
 	/**
 	 * Constructor to make the settings menu
@@ -27,9 +31,6 @@ public class SettingsFrame extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 
-		JLabel settingsLabel = new JLabel("Welcome to the Settings Menu");
-		JPanel settingsPanel = new JPanel();
-		JButton account = new JButton("Account");
 		account.setBounds(80, 100, 100, 25);
 		account.addActionListener(new ButtonListener());
 		setSize(600, 300);
