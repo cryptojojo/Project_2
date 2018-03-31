@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 import javax.swing.*;
 
@@ -17,9 +18,12 @@ public class Account extends JFrame {
 	private JTextField userName = new JTextField(10);
 	private JTextField userOven = new JTextField(10);
 	private JButton addNewUser = new JButton("Add New User");
+	private JComboBox c = new JComboBox();
+	String [] newUsers = new String[5];
+	int numberOfUsers = 0;
 
 	/**
-	 * Constructor for making an account from settins menu
+	 * Constructor for making an account from settings menu
 	 */
 	public Account() {
 		super("Smart Oven");
@@ -35,6 +39,8 @@ public class Account extends JFrame {
 		user.add(ovenLabel);
 		user.add(userOven);
 		user.add(addNewUser);
+		c.setSize(100, 150);
+		add(c);
 		add(user);
 		setLayout(new FlowLayout());
 		setLocationRelativeTo(null);
@@ -45,7 +51,7 @@ public class Account extends JFrame {
 		add(background);
 		background.setLayout(new FlowLayout());
 	}
-
+	
 	/**
 	 * Private class for Button actions
 	 * 
@@ -55,13 +61,19 @@ public class Account extends JFrame {
 		@Override
 
 		/**
-		 * @param ActionEvent
-		 *            e Method for implementing action for JButton in GUI
+		 * Method for implementing action for JButton in GUI
+		 * @param ActionEvent e 
 		 */
 		public void actionPerformed(ActionEvent e) {
-			String newUser = userName.getText();
-			String newOven = userOven.getText();
-			// Need to add more functionality to properly add user in settings
+			if(numberOfUsers == newUsers.length) {
+				System.out.println("You have exceeded the number of users.");
+			} else {
+				newUsers[numberOfUsers] = "User: " + userName.getText() + " , Oven: " + userOven.getText();
+				numberOfUsers++;
+			}
+			c.addItem(Arrays.toString(newUsers));
+			userName.setText("");
+			userOven.setText("");
 		}
 	}
 }
