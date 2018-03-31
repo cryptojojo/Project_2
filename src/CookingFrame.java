@@ -70,34 +70,37 @@ public class CookingFrame extends JFrame {
 		@Override
 
 		/**
-		 * @param ActionEvent
-		 *            e Method for implementing action for JButton in GUI
+		 * Method for implementing action for JButton in GUI
+		 * @param ActionEvent e 
 		 */
 		public void actionPerformed(ActionEvent e) {
-			int myCookTime;
+			String myCookTime;
 			String cooking;
 			String cookEnd;
 			String reset;
-
 			if (e.getSource() == cookTime) {
-				myCookTime = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter your cook time: "));
-				if (myCookTime > 180) {
-					reset = myCookTime + " is out of range. Enter a new cook time.\n";
-					text.append(reset);
-				} else {
-					cooking = "Your cook time has been set to: " + myCookTime + " minutes\n";
-					text.append(cooking);
-					cookEnd = "Cooking is complete.\n";
-					text.append(cookEnd);
-				}
-			} else if (e.getSource() == pizza) {
-				myCookTime = 25;
+				try {
+					myCookTime = JOptionPane.showInputDialog(null, "Enter your cook time: ");
+					if (Integer.parseInt(myCookTime) > 180) {
+						reset = myCookTime + " is out of range. Enter a new cook time.\n";
+						text.append(reset);
+					} else {
+						cooking = "Your cook time has been set to: " + myCookTime + " minutes\n";
+						text.append(cooking);
+						cookEnd = "Cooking is complete.\n";
+						text.append(cookEnd);
+					}
+			} catch (Exception e1) {
+				text.append("You hit cancel.\n");
+			}	
+		 } else if (e.getSource() == pizza) {
+				myCookTime = "25";
 				cooking = "Your cook time has been set to: " + myCookTime + " minutes\n";
 				text.append(cooking);
 				cookEnd = "Cooking is complete.\n";
 				text.append(cookEnd);
 			} else if (e.getSource() == cookies) {
-				myCookTime = 12;
+				myCookTime = "12";
 				cooking = "Your cook time has been set to: " + myCookTime + " minutes\n";
 				text.append(cooking);
 				cookEnd = "Cooking is complete.\n";

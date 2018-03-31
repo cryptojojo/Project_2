@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.EmptyStackException;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -83,21 +84,25 @@ public class GUI extends JFrame {
 		@Override
 
 		/**
-		 * @param ActionEvent
-		 *            e Method for implementing action for JButton in GUI
+		 * Method for implementing action for JButton in GUI
+		 * @param ActionEvent e Method for implementing action for JButton in GUI
 		 */
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == preheat) {
 				System.out.println("Hit the preheat button");
-				int temperature = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter your temperature: "));
+				String temperature = JOptionPane.showInputDialog(null, "Enter your temperature: ");
 				String temp;
 				String reset;
-				if (temperature > 500) {
-					reset = temperature + " is out of range. Enter a new temperature.\n";
-					text.append(reset);
-				} else {
-					temp = "Your oven has been preheated to: " + temperature + "\n";
-					text.append(temp);
+				try {
+					if (Integer.parseInt(temperature) > 500) {
+						reset = temperature + " is out of range. Enter a new temperature.\n";
+						text.append(reset);
+					} else {
+						temp = "Your oven has been preheated to: " + temperature + "\n";
+						text.append(temp);
+					}
+				} catch (Exception e1) {
+					text.append("You pressed cancel.\n");
 				}
 			} else if (e.getSource() == cook) {
 				System.out.println("Hit the cook button");
