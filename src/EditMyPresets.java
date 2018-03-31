@@ -63,8 +63,8 @@ public class EditMyPresets extends JFrame {
 		@Override
 
 		/**
-		 * @param ActionEvent
-		 *            e Method for implementing action for JButton in GUI
+		 * Method for implementing action for JButton in GUI
+		 * @param ActionEvent e 
 		 */
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == addNewPreset) {
