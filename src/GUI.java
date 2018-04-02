@@ -98,7 +98,7 @@ public class GUI extends JFrame {
 						reset = temperature + " is out of range. Enter a new temperature.\n";
 						text.append(reset);
 					} else {
-						temp = "Your oven has been preheated to: " + temperature + "\n";
+						temp = "Your oven has been preheated to: " + temperature + " degrees\n";
 						text.append(temp);
 					}
 				} catch (Exception e1) {

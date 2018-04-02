@@ -57,7 +57,7 @@ public class EditMyPresets extends JFrame {
 	/**
 	 * Private class for Button actions
 	 * 
-	 * @author Ashley Schuelein
+	 * @author Devin Timaul
 	 */
 	private class ButtonListener implements ActionListener {
 		@Override
