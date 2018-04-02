@@ -9,4 +9,4 @@ settings. Here the user will be able to add additional accounts by inputting a n
 and oven model. 
 
 This project was completed by Ashley Schuelein, Joseph Miller, and Devin Timaul. 
-Each person's work is represented by the @author line each class.
+Each person's work is represented by the @author line in each class.
