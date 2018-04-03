@@ -8,7 +8,7 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		
-		GUI g=new GUI();
+		GUI g = new GUI();
 		g.setVisible(true);
 	}
 }
